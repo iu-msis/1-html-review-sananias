@@ -7,6 +7,9 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/tablesort.css">
+
+  
 
     <title>Books</title>
 
@@ -32,9 +35,9 @@
         </header>
 
     <main>
-      <div class="table-responsive">  
+      <div class="row">  
         <h1>Favorite Books</h1>
-        <table class="table table-hover">
+        <table id="taskTable" class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Title</th>
@@ -171,9 +174,15 @@
 
 </main>
 
-<footer>
+  <!--HW3 -->
+  <script src="js/tablesort.min.js"></script>
+
   
-</footer>
+  /**-- Plug in from http://tristen.ca/tablesort/demo/**/
+  <script>
+    new Tablesort(document.getElementById('taskTable'));
+  </script>
+
   </body>
   
 </html>
