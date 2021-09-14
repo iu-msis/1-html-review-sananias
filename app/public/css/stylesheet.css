@@ -1,5 +1,5 @@
 body {background-color: black; color:white; padding-top:2%}
-header {color: #FF1493; font-weight: bold;}
+header {background-color: black; color:#FF1493; font-weight: bold;}
 p {color:#FF1493; font-size:8px;}
 main {padding-top:5%;}
 ul {padding-top:5%; color: black;}

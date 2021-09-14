@@ -1,8 +1,8 @@
 
 /**-- CSS from http://tristen.ca/tablesort/demo/**/
 
-  th[role=columnheader] {cursor: pointer;
-  }
+  th[role=columnheader] 
+  {cursor: pointer;}
   
   th[role=columnheader]:after {
       content: '';
@@ -10,7 +10,7 @@
       margin-top: 7px;
       border-width: 0 4px 4px;
       border-style: solid;
-      border-color: white transparent;
+      border-color: white;
       visibility: hidden;
       opacity: 0;
       -ms-user-select: none;
@@ -26,10 +26,8 @@
   
   th[aria-sort]:after {
       visibility: visible;
-      opacity: 0.4;
   }
   
   th[role=columnheader]:hover:after {
       visibility: visible;
-      opacity: 0;
   }
