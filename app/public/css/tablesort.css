@@ -1,7 +1,9 @@
 
 /**-- CSS from http://tristen.ca/tablesort/demo/**/
 
-  th[role=columnheader] 
+
+
+th[role=columnheader] 
   {cursor: pointer;}
   
   th[role=columnheader]:after {
@@ -22,10 +24,14 @@
   th[aria-sort=ascending]:after {
       border-bottom: none;
       border-width: 4px 4px 0;
+    color : yellow;
+    opacity: 0.6 !important;
   }
   
   th[aria-sort]:after {
       visibility: visible;
+      color : yellow;
+    opacity: 0.6 !important;
   }
   
   th[role=columnheader]:hover:after {
