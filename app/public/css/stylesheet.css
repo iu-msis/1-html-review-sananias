@@ -1,8 +1,7 @@
 body {background-color: black; color:white; padding-top:2%}
-header {background-color: black; color:#FF1493; font-weight: bold;}
+header {background-color:rgb(240, 255, 255) ; color:#FF1493; font-weight: bold; opacity: 1;}
 p {color:#FF1493; font-size:8px;}
-.table {color:white;}
-.table-hover {background-color: grey; color:#FF1493;}
+.table {background-color:	rgb(240, 255, 255); color:black; border-color: black;}
 main {padding-top:5%;}
 ul {padding-top:5%; color: black;}
 a {color:#FF1493;}
