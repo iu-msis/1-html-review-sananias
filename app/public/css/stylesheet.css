@@ -1,6 +1,6 @@
-body {background-color: black; color:white; padding-top:2% : font-family: "Lucida Console", "Courier New", monospace;}
-header {background-color:rgb(240, 255, 255) ; color:#FF1493; font-weight: bold;}
-nav {background-color:rgb(240, 255, 255);}
+body {background-color: black; color:white; padding-top:2% ; font-family: "Lucida Console", "Courier New", monospace;}
+header {background-color:	#282828; color:#FF1493; font-weight: bold;}
+.nav-link {background-color:black; color: #FF1493;}
 p {color:#FF1493; font-size:8px;}
 .table {background-color:	rgb(240, 255, 255); color:black; border-color: black;}
 main {padding-top:5%;}
@@ -8,4 +8,5 @@ ul {padding-top:5%; color: black;}
 a {color:#FF1493;}
 .list-group-item {background-color: black; color:white;}
 #recipe {padding-top:5%;}
+
 
