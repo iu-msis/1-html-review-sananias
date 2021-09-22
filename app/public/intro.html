@@ -47,7 +47,9 @@
                 <li class="list-group-item">Age: {{person.dob.age}} </li>
                 <li class="list-group-item">Email Address: <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></li>
               </ul>
-         
+              <form v-on:submit.prevent="fetchUserData">
+                <button type="submit">Refresh</button>
+              </form>
           </div>
 
 </main>
