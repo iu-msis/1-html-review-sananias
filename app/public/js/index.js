@@ -12,7 +12,7 @@ computed: {
     }
 
 },    
-
+//from professor's Github
 methods: {
     fetchUserData() {
         console.log("A");
@@ -36,7 +36,6 @@ methods: {
 },
 created() {
     this.fetchUserData();
-
 
 }//end created
 
