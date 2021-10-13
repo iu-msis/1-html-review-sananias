@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS dbserver1;
+USE dbserver1;
+
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
 	bookid int PRIMARY KEY,

@@ -5,15 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <!-- Bootstrap and Personal CSS -->
+  
+    <!-- Bootstrap and Personal CSS -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="css/stylesheet.css">
 
-    <!-- Tablesort CSS -->
+    
+     <!-- Tablesort CSS -->
     <link rel="stylesheet" href="css/tablesort.css">
 
+<!-- CDN  -->
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
 
-  
 
     <title>Books</title>
 
@@ -38,11 +42,14 @@
         </header>
 
     <main>
-      <div class="row">  
+
+    <!-- Books Table -->
+      <div class="row" id="bookApp">  
         <h1>Favorite Books</h1>
-        <table id="taskTable" class="table table-hover">
+        <table id="bookTable" class="table table-hover">
         <thead>
           <tr>
+            <th scope="col">Book Id</th>
             <th scope="col">Title</th>
             <th scope="col">Author(s)</th>
             <th scope="col">Year Published</th>
@@ -53,102 +60,53 @@
         </thead>
 
         <tbody>
-          <tr>
-            <th scope="row"><a href="https://www.amazon.com/Afro-Vegan-Farm-Fresh-African-Caribbean-Southern/dp/1607745313"> Afro-Vegan</a></th>
-            <td>Bryant Terry</td>
-            <td>2014</td>
-            <td>Ten Speed Press</td>
-            <td>224</td>
-            <td>$16.79</td>
+          <tr v-for="book in books">
+            <td>{{ book.bookid }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.yearPublished }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.pageCount }}</td>
+            <td>{{ prettyDollar(book.msrp) }}</td>
+        </tr>
 
-          </tr>
-          <tr>
-            <th scope="row"><a href=" https://www.amazon.com/dp/1101874864/ref=sspa_dk_detail_0?psc=1&pd_rd_i=1101874864&pd_rd_w=kzLbH&pf_rd_p=887084a2-5c34-4113-a4f8-b7947847c308&pd_rd_wg=Y0PoV&pf_rd_r=7E2H8MCY244AZQR9A0S7&pd_rd_r=0e1c6166-ae46-43c6-abbc-08bf6fbbe46b&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExTEtNQ0NSQ05KTjAzJmVuY3J5cHRlZElkPUEwNzYzNDU2MzdBUjBHUVk2RzJMRSZlbmNyeXB0ZWRBZElkPUEwNjA1MTc5UTdGM0pTOUQyTDBTJndpZGdldE5hbWU9c3BfZGV0YWlsJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==">Vegetarian India</a></th>
-            <td>Madhur Jaffrey</td>
-            <td>2015</td>
-            <td>Knopf</td>
-            <td>48</td>
-            <td>$37.50</td>
-          </tr>
-          <tr>
-            <th scope="row"><a href=" https://www.amazon.com/dp/1648763952/ref=sspa_dk_detail_2?psc=1&pd_rd_i=1648763952&pd_rd_w=kzLbH&pf_rd_p=887084a2-5c34-4113-a4f8-b7947847c308&pd_rd_wg=Y0PoV&pf_rd_r=7E2H8MCY244AZQR9A0S7&pd_rd_r=0e1c6166-ae46-43c6-abbc-08bf6fbbe46b&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExTEtNQ0NSQ05KTjAzJmVuY3J5cHRlZElkPUEwNzYzNDU2MzdBUjBHUVk2RzJMRSZlbmNyeXB0ZWRBZElkPUExMDQ2MDc3MUdGWVg2N1VUOVI4NSZ3aWRnZXROYW1lPXNwX2RldGFpbCZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=">Plant-Based Air Fryer Cookbook</a> </th>
-            <td>Janet Dockery</td>
-            <td>2021</td>
-            <td>Rockridge Press</td>
-            <td>140</td>
-            <td>$15.29</td>
-
-          </tr>
-
-          <tr>
-            <th scope="row"><a href=" https://www.amazon.com/Super-Easy-Plant-Based-Cookbook-5-Ingredient/dp/1648769403/ref=pd_sbs_6/147-9987656-3063806?pd_rd_w=R5jRD&pf_rd_p=0f56f70f-21e6-4d11-bb4a-bcdb928a3c5a&pf_rd_r=XKXTT645DVFCSJETVSZ1&pd_rd_r=daa62ae0-2605-43e8-b7cc-4e98ff012b6b&pd_rd_wg=IBwje&pd_rd_i=1648769403&psc=1">Super Easy Plant-Based Cookbook</a></th>
-            <td>Kathy A. Davis</td>
-            <td>2021</td>
-            <td>Rockridge Press</td>
-            <td>168</td>
-            <td>$13.43</td>
-            
-          </tr>
-
-          <tr>
-            <th scope="row"><a href=" https://www.amazon.com/Plant-Based-Diet-Beginners-Delicious/dp/1646110420/ref=pd_bxgy_img_2/147-9987656-3063806?pd_rd_w=Rua7e&pf_rd_p=c64372fa-c41c-422e-990d-9e034f73989b&pf_rd_r=FW0MXTB9PJ99JJCNAH5Z&pd_rd_r=fc48517e-ba20-4195-bfdb-50085a1c8ce7&pd_rd_wg=M9ioc&pd_rd_i=1646110420&psc=1">The Plant Based Diet for Beginners</a> </th>
-            <td>Gabriel Miller</td>
-            <td>2019</td>
-            <td>Rockridge Press</td>
-            <td>168</td>
-            <td>$13.66</td>
-            
-          </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="row">
-     <div class="col-sm-8">
-    <div class="form-responsive">      
-        <h2> New Book Form</h2>
-        
-        <form>
+  <!-- Form  -->
+    <form v-on:submit.prevent="postNewBook">
+      <div class="mb-3">
+        <label for="bookName" class="form-label">Book Title</label>
+        <input type="text" v-model="bookForm.bookName"
+         class="form-control" id="bookName">
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input  type="text" v-model="bookForm.author" class="form-control" id="author">
+      </div>
+      <div class="mb-3">
+        <label for="yearPublished" class="form-label">Year Published</label>
+        <input type="number" v-model="bookForm.yearPublished" class="form-control" id="yearPublished">
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="form-label">Publisher</label>
+        <input type="text" v-model="bookForm.publisher" class="form-control" id="publisher">
+      </div>
+      <div class="mb-3">
+        <label for="pageCount" class="form-label">Page Count</label>
+        <input type="text" v-model="bookForm.pageCount" class="form-control" id="pageCount">
+      </div>
+      <div class="mb-3">
+        <label for="MSRP" class="form-label">MSRP</label>
+        <input type="number" v-model="bookForm.MSRP" class="form-control" id="MSRP">
+      </div>
 
-        <div class="mb-3">
-          <label for="InputBookName" class="form-label">Book Name</label>
-          <input type="text" class="form-control" id="InputBookName">
-        </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
-        <div class="mb-3">
-            <label for="InputAuthor" class="form-label">Author</label>
-          <input type="text" class="form-control" id="InputAuthor">
-          </div>
-    
-        <div class="mb-3">
-            <label for="InputYearPublished" class="form-label">Year Published</label>
-            <input type="text" class="form-control" id="InputYearPublished">
-        </div>
-
-        <div class="mb-3">
-            <label for="InputPublisher" class="form-label">Publisher</label>
-            <input type="text" class="form-control" id="InputPublisher">
-        </div>
-
-        <div class="mb-3">
-            <label for="InputPageNumber" class="form-label">Page Number</label>
-            <input type="number" class="form-control" id="InputPageNumber">
-        </div>
-       
-        <div class="mb-3">
-        <label for="InputPrice" class="form-label">Price</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">$</span>
-            </div>
-            <input type="text" class="form-control">
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-</div>
+  <!-- Pictures  -->
 
 <div class="col-sm-4" id="recipe">
     <img class="img-thumbnail" src="img\plantbased.jpg">
@@ -177,14 +135,19 @@
 
 </main>
 
-  <!--HW3 -->
+   <!--HW5 Script -->
+   <script src="js/books.js"></script>
+   
+  <!--HW3 Script -->
   <script src="js/tablesort.min.js"></script>
+
+
 
   
 
   <!-- Plug in from http://tristen.ca/tablesort/demo/  -->
   <script>
-    new Tablesort(document.getElementById('taskTable'));
+    new Tablesort(document.getElementById('bookTable'));
   </script>
 
   </body>

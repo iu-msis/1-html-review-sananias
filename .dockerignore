@@ -1,4 +1,4 @@
 .*
 docker-compose.yml
 *.md
-!README.md
+
