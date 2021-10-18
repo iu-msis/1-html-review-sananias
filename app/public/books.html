@@ -25,6 +25,7 @@
   
   <body class="p-3 m-2">
     <header>
+<!-- NAV BAR  -->
         <nav class="navbar fixed-top navbar-expand-lg";>
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +44,10 @@
 
     <main>
 
-    <!-- Books Table -->
       <div class="row" id="bookApp">  
         <h1>Favorite Books</h1>
+
+<!-- Books Table -->
         <table id="bookTable" class="table table-hover">
         <thead>
           <tr>
@@ -54,7 +56,7 @@
             <th scope="col">Author(s)</th>
             <th scope="col">Year Published</th>
             <th scope="col">Publisher</th>
-            <th scope="col">Page Count</th>
+            <th scope="col">Page Number</th>
             <th scope="col">MSRP</th>
           </tr>
         </thead>
@@ -66,7 +68,7 @@
             <td>{{ book.author }}</td>
             <td>{{ book.yearPublished }}</td>
             <td>{{ book.publisher }}</td>
-            <td>{{ book.pageCount }}</td>
+            <td>{{ book.pageNumber }}</td>
             <td>{{ prettyDollar(book.msrp) }}</td>
         </tr>
 
@@ -76,15 +78,22 @@
 
   <!-- Form  -->
     <form v-on:submit.prevent="postNewBook">
+     
       <div class="mb-3">
-        <label for="bookName" class="form-label">Book Title</label>
-        <input type="text" v-model="bookForm.bookName"
-         class="form-control" id="bookName">
+        <label for="bookid" class="form-label">Book ID</label>
+        <input type="text" v-model="bookForm.bookid" class="form-control" id="bookid">
       </div>
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Book Title</label>
+        <input type="text" v-model="bookForm.title" class="form-control" id="title">
+      </div>
+
       <div class="mb-3">
         <label for="author" class="form-label">Author</label>
         <input  type="text" v-model="bookForm.author" class="form-control" id="author">
       </div>
+
       <div class="mb-3">
         <label for="yearPublished" class="form-label">Year Published</label>
         <input type="number" v-model="bookForm.yearPublished" class="form-control" id="yearPublished">
@@ -102,11 +111,11 @@
         <input type="number" v-model="bookForm.MSRP" class="form-control" id="MSRP">
       </div>
 
-      
       <button type="submit" class="btn btn-primary">Submit</button>
+   
     </form>
 
-  <!-- Pictures  -->
+<!-- Pictures  -->
 
 <div class="col-sm-4" id="recipe">
     <img class="img-thumbnail" src="img\plantbased.jpg">
@@ -135,10 +144,10 @@
 
 </main>
 
-   <!--HW5 Script -->
+<!--HW5 Script -->
    <script src="js/books.js"></script>
    
-  <!--HW3 Script -->
+<!--HW3 Script -->
   <script src="js/tablesort.min.js"></script>
 
 
