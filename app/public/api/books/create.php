@@ -23,12 +23,11 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'INSERT INTO book(bookid, title, author, yearPublished, publisher, pageNumber, msrp)
-  VALUES (?, ?, ?, ?, ?, ?, ?)'
+  'INSERT INTO book ( title, author, yearPublished, publisher, pageNumber, msrp)
+  VALUES (?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $_POST['bookid'],
   $_POST['title'],
   $_POST['author'],
   $_POST['yearPublished'],
@@ -36,8 +35,3 @@ $stmt->execute([
   $_POST['pageNumber']
   $_POST['msrp']
 ]);
- 
-// Step 4: Output
-// Here, instead of giving output, I'm redirecting to the SELECT API,
-// just in case the data changed by entering it
-header('HTTP/1.1 303 See Other');

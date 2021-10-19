@@ -5,28 +5,27 @@ const Book = {
         bookForm: {}
       }
     },
-  
-    methods: {
+methods: {
 // Currency Formatting ------------------------------------------------------------------------------------
-
-      prettyDollar(n) {
-        const d = new Intl.NumberFormat("en-US").format(n);
-        return "$ " + d;
-    },
+prettyDollar(n) {
+  const d = new Intl.NumberFormat("en-US").format(n);
+    return "$ " + d;
+                },
 // API to SQL for Books Table ------------------------------------------------------------------------------------
-        fetchBooksData() {
-            fetch('/api/books/')
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.books = responseJson;
-            })
-            .catch( (err) => {
-                console.error(err);
-            })
-        },
-// Post New Book from form ------------------------------------------------------------------------------------
-postNewOffer(evt) { 
+fetchBooksData() {
+  fetch('/api/books/index.php')
+  .then( response => response.json() )
+  .then( (responseJson) => {
+  console.log(responseJson);
+  this.books = responseJson;
+  })
+.catch( (err) => {
+console.error(err);
+    })
+ },
+
+ // Post New Book from form ------------------------------------------------------------------------------------
+postNewBook(evt) { 
   console.log("Posting!", this.bookForm);
 
   fetch('api/books/create.php', {
@@ -37,19 +36,19 @@ postNewOffer(evt) {
       }
     })
     .then( response => response.json() )
+    
     .then( json => {
-      console.log("Returned from post:", json);
-      this.books = json;
+    console.log("Returned from post:", json);
+    this.books = json;
       
-      this.bookForm = {};
-    });
-}
+    this.bookForm = {};
+                  });
+              }     
    
 // Closing Methods ------------------------------------------------------------------------------------
-              },
+          },
 // Created ------------------------------------------------------------------------------------
-
-    created() {
+created() {
         this.fetchBooksData();
     }
   }

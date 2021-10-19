@@ -18,4 +18,5 @@ $json = json_encode($books, JSON_PRETTY_PRINT);
 
 // Step 4
 header('Content-Type: application/json');
+
 echo $json;
