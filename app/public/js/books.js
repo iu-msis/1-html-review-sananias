@@ -24,21 +24,23 @@ console.error(err);
     })
  },
 
- // Post New Book from form ------------------------------------------------------------------------------------
+// Post New Book from form ------------------------------------------------------------------------------------
 postNewBook(evt) { 
-  console.log("Posting", this.bookForm);
+  console.log("Create", this.bookForm);
 
   fetch('api/books/create.php', {
       method:'POST',
       body: JSON.stringify(this.bookForm),
       headers: {
         "Content-Type": "application/json; charset=utf-8"
-      }
+               }
     })
+
     .then( response => response.json())
-    .then( json => {
+    .then(json => {
     console.log("Returned from post:", json);
     this.books = json;
+    // Clear whenever its submitted -------------
     this.bookForm = {};
                  
                    });

@@ -23,8 +23,8 @@ $db = DbConnection::getConnection();
 
 // Step 2
 $stmt = $db->prepare(
-  'INSERT INTO book ( title, author, yearPublished, publisher, pageNumber, msrp)
-  VALUES (?, ?, ?, ?, ?, ?)'
+  'INSERT INTO books( title, author, yearPublished, publisher, pageNumber, msrp)
+VALUES (?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
@@ -35,3 +35,8 @@ $stmt->execute([
   $_POST['pageNumber'],
   $_POST['msrp']
 ]);
+
+// Step 4: Output
+
+header('HTTP/1.1 303 See Other');
+header('Location: ../books/');
