@@ -58,6 +58,7 @@
             <th scope="col">Publisher</th>
             <th scope="col">Page Number</th>
             <th scope="col">MSRP</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
 
@@ -69,22 +70,29 @@
             <td>{{ book.yearPublished }}</td>
             <td>{{ book.publisher }}</td>
             <td>{{ book.pageNumber }}</td>
-            <td>{{ prettyDollar(book.msrp) }}</td>
+            <td>{{ prettyDollar(book.msrp) }}</td>         
+            <td>
+              <button type="button" 
+                class="btn btn-outline-secondary btn-sm"
+                v-on:click="selectBookToEdit(book)">Edit</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm"
+                v-on:click="postDeleteBook(book)">Delete</button>
+            </td>
         </tr>
 
         </tbody>
       </table>
 
   <!-- Form  -->
-    <form v-on:submit.prevent="postNewBook">
-     
+  <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
+    <form v-on:submit.prevent="postBook">
       <div class="mb-3">
-        <label for="title" class="form-label">Book Title</label>
+        <label for="title" class="form-label">Book Title<span class="reqd">*</span></label>
         <input type="text" v-model="bookForm.title" class="form-control" id="title">
       </div>
 
       <div class="mb-3">
-        <label for="author" class="form-label">Author</label>
+        <label for="author" class="form-label">Author<span class="reqd">*</span></label>
         <input  type="text" v-model="bookForm.author" class="form-control" id="author">
       </div>
 
@@ -105,7 +113,8 @@
         <input type="number" v-model="bookForm.msrp" class="form-control" id="MSRP">
       </div>
 <!-- Submit  -->
-      <button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Book</button>
+<button type="button" class="btn btn-outline-secondary" v-if="selectedBook" v-on:click="resetBookForm">Cancel</button>
     </form>
 </div>
 
